@@ -3,14 +3,14 @@
 (async () => {
 
     const API_KEY = '7e3d2a700cc8d50f86c45c6b3b7a10f6cfef598a9a353f7f9f2594812e3b7ab7'
-    const CACHE_AGE_IN_SECONDS = 8888000000000000
+    const CACHE_AGE_IN_SECONDS = 60
 
     const getData = async (url, apiKey) => {
         let data = localStorage.getItem(url)
         if (data) {
             data = JSON.parse(data)
             const { createdAt } = data
-            if ((new Date(createdAt).getTime() + CACHE_AGE_IN_SECONDS * 1000000000000000) > new Date().getTime()) {
+            if ((new Date(createdAt).getTime() + CACHE_AGE_IN_SECONDS * 1000) > new Date().getTime()) {
                 return data
             }
         }
@@ -103,7 +103,7 @@
             const parsedTokens = JSON.parse(tokens['data'])['data']
             const colorScheme = ['red', 'blue', 'green', 'purple', 'gray']
             const allData = parsedTokens
-                .map(({ name, indexNumber, priceUsd }) => ({ name, indexNumber, priceUsd }))
+                .map(({ name, priceUsd }) => ({ name, priceUsd }))
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', () => {
                     let selectedCount = 0;

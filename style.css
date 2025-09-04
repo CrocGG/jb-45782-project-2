@@ -1,6 +1,8 @@
 html,
 body {
     background-color: lightgreen;
+    margin: 0;
+    height: 100%;
 }
 
 #search-bar {
@@ -92,14 +94,9 @@ h1 {
     justify-content: center;
 }
 
-
-#myChart {
-    max-width: 95%;
-    margin: auto;
-}
-
 img {
     margin: auto;
+    display: flex;
     text-align: center;
     width: 500px;
 }
@@ -109,14 +106,66 @@ fieldset {
     text-align: center;
 }
 
-legend, #description {
+legend,
+#description {
     color: darkgreen;
 }
 
+#profile-tab-pane {
+    height: 100%;
+    margin: 0;
+}
+
+.mobile-image {
+    display: none;
+}
 
 @media (max-width:600px) {
-    #myChart {
-        height: auto;
-        margin: auto;
+
+    html,
+    body {
+        background-color: lightcoral;
     }
+
+    #filter-input {
+        background-image: linear-gradient(to bottom left, rgb(239, 67, 67), rgb(226, 115, 154), white);
+    }
+
+    h1 {
+        color: darkred;
+        background-image: linear-gradient(to bottom left, rgb(239, 67, 67), rgb(226, 115, 154), white);
+    }
+
+    #unfollow-all>button {
+        background-color: red;
+    }
+
+    #token-box>.one-token {
+        grid-template-rows: repeat(3, 1fr);
+        background-color: coral;
+        width: -webkit-fill-available;
+    }
+
+    .one-token>#info-symbol {
+        display: none;
+    }
+
+    .one-token>#switcher {
+        grid-row: 3;
+    }
+
+    legend,
+    #description {
+        color: darkred;
+    }
+
+    .mobile-image {
+        width: 300px;
+        display: flex;
+    }
+
+    .web-image {
+        display: none;
+    }
+
 }
